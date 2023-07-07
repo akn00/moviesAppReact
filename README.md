@@ -1,70 +1,63 @@
-# Getting Started with Create React App
+# Movie Library
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a movie library web application built using React. It allows users to browse and explore movies based on different genres. The application fetches movie data from a JSON file and displays it in an organized manner, making it easy for users to find movies of their interest.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Genre Segregation**: The movies are categorized into different genres, such as action, comedy, drama, etc. Users can select a genre to view movies belonging to that genre specifically.
 
-### `npm start`
+- **Thumbnail View**: Movies are displayed as thumbnails, showing the movie poster and essential information like title, rating, and release year.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Expanded View**: When a user hovers over a movie thumbnail, it expands to display more details about the movie, including genre, director, runtime, actors, and a brief plot summary.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Modal Dialog**: Clicking on a movie thumbnail opens a modal dialog with a larger image of the movie poster and comprehensive information about the movie.
 
-### `npm test`
+- **Scrolling Navigation**: If there are multiple movies within a genre, the movie thumbnails can be scrolled horizontally using navigation buttons on the sides.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Getting Started
 
-### `npm run build`
+1. Clone the repository to your local machine.
+2. Install the dependencies by running `npm install` in the project directory.
+3. Replace the `data.json` file with your own movie data or modify the existing file to include your movie collection.
+4. Run the application using `npm start`.
+5. Open your web browser and navigate to `http://localhost:3000` to view the movie library.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Project Structure
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- The `App.js` file is the entry point of the application, which renders the `Movies` component.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- The `Movies` component is responsible for fetching the movie data, extracting unique genres, and rendering the genre sections along with the `Segregation` component.
 
-### `npm run eject`
+- The `Segregation` component receives a genre as a prop, filters the movies based on the genre, and displays the filtered movies in a horizontal scrolling row.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- The `MovieThumbnail` component represents each movie thumbnail, including its image, title, and other relevant information. It handles hover and click events to show expanded details and open the modal dialog.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- The `Modal` component is a reusable component from the Material-UI library, used to display the detailed information of a movie when a thumbnail is clicked.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- The CSS styles are organized in a separate `styles.css` file, providing styling for the different components and layout.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Customization
 
-## Learn More
+- To customize the application with your own movie data, replace the contents of the `data.json` file with your movie collection. Ensure that the JSON structure matches the existing format.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- You can modify the styling in the `styles.css` file to change the appearance of the movie thumbnails, expanded view, and modal dialog according to your preferences.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Feel free to add additional features or modify the existing code to enhance the functionality of the movie library.
 
-### Code Splitting
+## Dependencies
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+This project utilizes the following dependencies:
 
-### Analyzing the Bundle Size
+- React: A JavaScript library for building user interfaces.
+- react-dom: Provides the rendering capabilities for React components.
+- Material-UI: A popular React component library for creating beautiful UI elements.
+- react-modal: A library for creating accessible modal dialogs in React.
+- npm: A package manager for Node.js, used for installing and managing project dependencies.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Make sure you have Node.js and npm installed on your machine before running the application.
 
-### Making a Progressive Web App
+## Conclusion
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+The Movie Library is a user-friendly web application that allows users to browse movies based on genres. It provides an organized and visually appealing interface for exploring movie collections. With its expandable thumbnails and detailed modal dialogs, users can get a comprehensive view of each movie and make informed choices. The application can be easily customized to suit different movie collections and preferences.
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Enjoy exploring your favorite movies with the Movie Library!
