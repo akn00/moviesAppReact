@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
-import MovieThumbnail from "./thumbnail";
+import Favorite from "./Favorite";
 
-const Segregation = ({ genre }) => {
+const Favlayout = ({ title }) => {
   const [movies, setMovies] = useState([]);
   const movieRowRef = useRef(null);
 
@@ -11,19 +11,19 @@ const Segregation = ({ genre }) => {
         const response = await fetch("/data.json");
         const data = await response.json();
 
-        const moviesByGenre = data.filter((movie) =>
-          movie.Genre.includes(genre)
+        const moviesByTitle = data.filter((movie) =>
+          movie.Title.includes(title)
         );
 
-        setMovies(moviesByGenre);
+        setMovies(moviesByTitle);
       } catch (error) {
         console.error("Error fetching movies:", error);
       }
     };
 
     fetchMovies();
-  }, [genre]);
-
+  }, [title]);
+ 
   const scrollLeft = () => {
     if (movieRowRef.current) {
       movieRowRef.current.scrollBy({
@@ -51,10 +51,10 @@ const Segregation = ({ genre }) => {
           &lt;
         </div>
       )}
-      <div className="movie-row" ref={movieRowRef}>
+      <div className="movie-row-fav" ref={movieRowRef}>
         {movies.map((movie) => (
           <div className="thumbnail-container" key={movie.Title}>
-            <MovieThumbnail movie={movie} />
+            <Favorite movie={movie} />
           </div>
         ))}
       </div>
@@ -67,4 +67,4 @@ const Segregation = ({ genre }) => {
   );
 };
 
-export default Segregation;
+export default Favlayout;

@@ -1,15 +1,27 @@
 .movie-row {
+  width: auto;
   display: flex;
   overflow-x: hidden;
   margin-top: 20px;
   padding-bottom: 10px;
 }
 
+.movie-row-fav {
+  width: 100%;
+  display: flex;
+  overflow-x: hidden;
+  margin-top: 20px;
+  padding-bottom: 10px;
+}
+
+/* .thumbnail{
+  width: 150px;
+} */
 .thumbnail-container {
   flex: 0 0 auto;
   margin-right: 10px;
-  width: 150px;
-  height: 280px;
+  width: calc(16.7%);
+  /* height: calc(70%); */
   position: relative;
   
   display: inline;
@@ -19,50 +31,19 @@
   border-radius: 5px;
   overflow: hidden;
 }
-
-.thumbnail-container:hover {
-  width: 300px;
+.thumbnail-container:hover{
+  width: 40%;
 }
 
 .thumbnail-container img {
   
   border-radius: 5px;
   width: 100%;
-  height: 14em;
+  height: 26em ;
   object-fit: cover;
   object-position: center;
   overflow: hidden;
 }
-.hidden{
-  display: none;
-}
-h2{
-  color:#bdc1c6;
-}
-h5{
-  position: absolute;
-  bottom: 0;
-  margin-top: auto;
-  color:#bdc1c6;
-
-}
-/* .movie-name {
-  flex: 0 0 auto;
-  color: #ffffff;
-  padding: 5px;
-  font-size: 14px;
-  font-weight: bold;
-  margin: 0;
-  text-align: center;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-  background: rgba(117, 117, 117, 0.5);
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  transition: opacity 0.3s ease;
-  white-space: nowrap;
-  display: inline;
-} */
 .movie-name {
   flex: 0 0 auto;
   color: #ffffff;
@@ -73,8 +54,9 @@ h5{
   text-align: center;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   background: rgba(117, 117, 117, 0.5);
-  width: 100%;
-  height: 76.5%;
+  width: 98.7%;
+  height: 89.2%;
+  border-radius: 5px;
   position: absolute;
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -85,6 +67,68 @@ h5{
   pointer-events: none;
 }
 
+/* Add media queries to change the number of cards based on screen size */
+@media screen and (max-width: 1024px) {
+  .thumbnail-container {
+    width: calc(20%); /* Show 5 cards on smaller screens */
+  }
+  .thumbnail-container img {
+    height:20em;
+  }
+  .thumbnail-container:hover{
+    width: 50%;
+  }
+  .movie-name {
+    height:86%;
+  }
+  
+}
+
+@media screen and (max-width: 768px) {
+  .thumbnail-container {
+    width: calc(25%); /* Show 4 cards on even smaller screens */
+  }
+  .thumbnail-container img {
+    height:18em;
+  }
+  .thumbnail-container:hover{
+    width: 60%;
+  }
+  .movie-name {
+    height:84.5%;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .thumbnail-container {
+    width: calc(50%); /* Show 2 cards on the smallest screens */
+  }
+  .thumbnail-container img {
+    height:18em;
+  }
+  .thumbnail-container:hover{
+    width: 90%;
+  }
+  .movie-name {
+    height:84.5%;
+  }
+}
+
+.hidden{
+  display: none;
+}
+h2{
+  color:#bdc1c6;
+}
+h5{
+  position: absolute;
+  bottom: 0;
+  margin-top: auto;
+  margin-bottom: 0px;
+  width: 100%;
+  color:#bdc1c6;
+
+}
 
 .title {
   font-weight: bold;
@@ -157,6 +201,7 @@ font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 -webkit-text-stroke-color: #000;
 }
 .modalComponent img{
+  background-color: gray;
   border-radius: 5px;
   border: solid 2px rgb(78, 78, 78);
 }
@@ -169,7 +214,7 @@ font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   
   margin: auto;
   padding: auto;
-  margin-top: 200px;
+  margin-top: 50px;
   max-height: 650px;
   max-width: 500px;
   /* display: flex; */
@@ -188,6 +233,9 @@ font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 .movie-row-container {
   position: relative;
 }
+
+/* navigation button css */
+
 
 .navigation-button {
   position: absolute;
@@ -212,4 +260,91 @@ font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 
 .navigation-button.right {
   right: 10px;
+}
+/* header css */
+h3 {
+  margin-left: 5px;
+  color: #fff;
+}
+.movies-container{
+  margin-top: 5em;
+  position: absolute;
+}
+body{
+  margin: 0;
+}
+.root{
+  margin-top: 0;
+  position:relative;
+}
+header {
+  position:fixed;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem;
+  margin: 0;
+  background-color: #a8a7a7;
+  border-bottom: #555555 solid 4px;
+  /* border-radius: 10px; */
+  width:100%;
+  z-index: 100;
+  margin-bottom: 5em;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  margin-left: 1.5rem;
+  cursor:pointer;
+}
+.noFav{
+  color:#ffffff;
+  font-size: larger;
+  text-align: center;
+}
+.logo img {
+  height: 45px;
+  width: 70px;
+}
+
+/* favourite button in header css */
+
+.favorite-button {
+  background-color: transparent;
+  color: whitesmoke;
+  border: transparent;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 18px;
+  margin-right: 1.5rem;
+}
+
+.favorite-button:hover {
+  background-color: #555555;
+  color: #ffffff;
+  border: solid 2px #888888;
+}
+
+
+/* favourite button n thumbnail css */
+
+.heart-icon2{
+  border: transparent;
+  background-color: transparent;
+  color: red;
+  position: relative;
+  bottom: 40px;
+  font-size: 30px;
+  cursor:pointer;
+}
+.heart-icon{
+  border: transparent;
+  background-color: transparent;
+  color: white;
+  position: relative;
+  bottom: 40px;
+  font-size: 30px;
+  cursor:pointer;
 }

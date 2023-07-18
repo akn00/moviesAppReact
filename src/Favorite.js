@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import Modal from '@material-ui/core/Modal';
 
 
-const MovieThumbnail = ({ movie }) => {
+const Favorite = ({ movie }) => {
   const [isExpanded, setIsExpanded] = useState(false);
   const [open, setOpen] = useState(false);
   const modalRef = useRef(null);
@@ -35,7 +35,7 @@ const MovieThumbnail = ({ movie }) => {
     let favoritesArray = [];
   
     if (favorites) {
-      favoritesArray = JSON.parse(favorites);
+      favoritesArray = JSON.parse(favorites); 
     }
   
     const index = favoritesArray.indexOf(movie.Title);
@@ -53,15 +53,7 @@ const MovieThumbnail = ({ movie }) => {
     setIsClicked(!isClicked);
   };
   
-  useEffect(()=>{const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-favorites.forEach((title) => {
-  // console.log(title)
-  if (movie.Title === title) {
-    setIsClicked(!isClicked);
-  }
-});
-},[]);
-
+  
   useEffect(() => {
     const handleOutsideClick = (event) => {
       if (modalRef.current && !modalRef.current.contains(event.target)) {
@@ -129,7 +121,7 @@ favorites.forEach((title) => {
           alt={movie.Title}
         />
       </div>
-          <button className={isClicked ? "heart-icon2" : "heart-icon"} onClick={handleFavoriteClick}>&#9829;</button>
+          <button className={isClicked ? "heart-icon" : "heart-icon2"} onClick={handleFavoriteClick}>&#9829;</button>
 
       <div className="belowTitle">
         <h5>{movie.Title}</h5>
@@ -143,4 +135,4 @@ favorites.forEach((title) => {
   );
 };
 
-export default MovieThumbnail;
+export default Favorite;
